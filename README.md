@@ -1,9 +1,9 @@
-MSP.bs is a mail server log parser written in Bash. It's modeled after cPanel's excellent MSP.
+MSP.sh is a mail server log parser written in Bash. It's modeled after cPanel's excellent MSP.
 
-Right now there's ready-ish support for Postfix and a WIP version for Exim that I'm too ashamed to share. It currently implements the two "main" features most people tend to use MSP for, checking sender stats and RBLs. Here's what it looks like:
+Right now there's ready-ish support for Postfix and a WIP version for Exim that I'm too ashamed to share. It currently implements the two "main" features most people tend to use MSP for, checking sender stats and RBLs. I might expand it further. Here's what it looks like:
 
 ```
-[root@cwp ~]# MSP.bs --auth
+[root@cwp ~]# MSP.sh --auth
 Getting cool Postfix facts...
 
 📨 Queue Size: 7
@@ -26,7 +26,7 @@ There's nothing else to show here. Have a llama: 🦙
 ```
 
 ```
-[root@cwp ~]# MSP.bs --rbl
+[root@cwp ~]# MSP.sh --rbl
 Running RBL checks...
 
 5.161.207.83
@@ -38,4 +38,4 @@ Running RBL checks...
         zen.spamhaus.org        GOOD
 ```
 
-MSP.bs was originally written because I needed something like MSP for CWP servers. This is probably the best code to ever run on a CWP server. CWP is horrible. Please do not use it. But feel free to use MSP.bs.
+MSP.sh was originally written because I needed something like MSP for CWP servers. This is probably the best code to ever run on a CWP server. CWP is horrible. Please do not use it. But feel free to use MSP.sh.
