@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # MSP.sh: MSP-like mail server log parser in Bash
 # Nathan P. <me@tchbnl.net>
-# 0.2a (Postfix)
+# 0.2b (Postfix)
 set -euo pipefail
 
 # Version and mail server variant
 # Right now MSP.sh supports Postfix and has a WIP version for Exim
-VERSION='0.2a (Postfix)'
+VERSION='0.2b (Postfix)'
 
 # Nice text formatting options
 TEXT_BOLD='\e[1m'
@@ -167,6 +167,11 @@ auth_check() {
 # --rbl/RBL check
 # TODO: Add support for IPv6 addresses. Oh God.
 rbl_check() {
+    if ! command -v dig >/dev/null; then
+        echo 'dig not found. MSP.sh requires dig to check IPs against RBLs.'
+        exit
+    fi
+
     # Get our list of public IPs
     # shellcheck disable=SC2312
     server_ips="$(hostname -I | xargs -n 1 \
